@@ -1,14 +1,14 @@
 option(
   'themes',
   type: 'array',
-  choices: ['gtk2', 'gtk3', 'gtk4'],
+  choices: ['gtk3', 'gtk4'],
   description: 'List of themes to build',
 )
 
 option(
   'variants',
   type: 'array',
-  choices: ['light', 'darker', 'dark', 'lighter'],
+  choices: ['normal'],
   description: 'List of theme variants to build',
 )
 

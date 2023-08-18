@@ -11,20 +11,14 @@ project(
 fs = import('fs')
 
 variant_name = {
-  'light' : (get_option('transparency') ? 'Gruvbox' : 'Gruvbox-solid'),
-  'darker' : (get_option('transparency') ? 'Gruvbox-Darker' : 'Gruvbox-Darker-solid'),
-  'dark' : (get_option('transparency') ? 'Gruvbox-Dark' : 'Gruvbox-Dark-solid'),
-  'lighter' : (get_option('transparency') ? 'Gruvbox-Lighter' : 'Gruvbox-Lighter-solid'),
+  'normal' : (get_option('transparency') ? 'Gruvbox' : 'Gruvbox-solid'),
 }
 
 prefix = get_option('prefix')
 datadir = get_option('datadir')
 
 install_dir = {
-  'light' : datadir / 'themes' / variant_name.get('light'),
-  'darker' : datadir / 'themes' / variant_name.get('darker'),
-  'dark' : datadir / 'themes' / variant_name.get('dark'),
-  'lighter' : datadir / 'themes' / variant_name.get('lighter'),
+  'normal' : datadir / 'themes' / variant_name.get('normal'),
 }
 
 # sassc dependency
@@ -41,7 +35,7 @@ foreach theme : ['gtk3', 'gtk4']
 endforeach
 
 # inkscape dependency
-foreach theme : ['gtk2', 'gtk3', 'gtk4']
+foreach theme : ['gtk3', 'gtk4']
   if theme in get_option('themes')
     inkscape = find_program('inkscape', required : false)
     if inkscape.found()
